@@ -5,7 +5,8 @@ import { GlobalContext } from "../Contextdata";
 import { useState } from "react"
 const ModelType=()=>{
     const [vehiclemodel, setvehiclemodel]=useState("")
-    const {setdisplayval,vehicledata,setvehicledata}=useContext(GlobalContext)
+    const {setdisplayval,vehicledata,setvehicledata}=useContext(GlobalContext);
+    const [modelcheck,setmodelcheck]=useState(true)
     console.log(vehicledata.vehicleType)
     let wheel = vehicledata.wheels;
     let typeofvehicle =vehicledata.vehicleType;
@@ -19,6 +20,16 @@ axios.get(`http://localhost:5500/api/v1/vehicle/${wheel}/${typeofvehicle}`)
 },[])
 
 const uniquemodel= [...new Set(vehiclemodel)]
+
+const handleNext=()=>{
+    if(!vehicledata.model){
+        setmodelcheck(false)
+    }else{
+        setmodelcheck(true)
+        setdisplayval(5)
+
+    }
+}
     return (
         <div>
             <h2>Select the Model</h2>
@@ -33,9 +44,12 @@ const uniquemodel= [...new Set(vehiclemodel)]
                     ))}
                
             </ul>
+            
+            {!modelcheck && <span style={{ color: "red" }}>Please select the option</span>}
+            
             <div>
              <button onClick={()=>setdisplayval(3)}>Back</button>
-             <button onClick={()=>setdisplayval(5)}>Next</button>
+             <button onClick={handleNext}>Next</button>
              </div>
         </div>
     )

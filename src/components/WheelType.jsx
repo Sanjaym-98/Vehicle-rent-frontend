@@ -1,10 +1,18 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useContext } from "react";
 import { GlobalContext } from "../Contextdata";
 
 const WheelType = () => {
     const { setdisplayval ,vehicledata,setvehicledata} = useContext(GlobalContext)
-
+    const [wheelcheck,setwheelcheck]=useState(true);
+  const handleNext=()=>{
+      if(!vehicledata.wheels){
+        setwheelcheck(false)
+      }else{
+        setwheelcheck(true)
+        setdisplayval(3)
+      }
+  }
     return (
         <div>
             <div>
@@ -19,8 +27,11 @@ const WheelType = () => {
                 <label htmlFor="4wheeler">4 Wheeler</label>
             </div>
             <div>
+            {!wheelcheck && <span style={{ color: "red" }}>Please select one option</span>}
+            </div>
+            <div>
                 <button onClick={() => setdisplayval(1)}>Back</button>
-                <button onClick={() => setdisplayval(3)}>Next</button>
+                <button onClick={handleNext}>Next</button>
             </div>
         </div>
     )

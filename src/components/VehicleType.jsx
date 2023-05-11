@@ -5,6 +5,7 @@ import { GlobalContext } from "../Contextdata";
 const VehicleType = () => {
   const [vehicleTypes, setVehicleTypes] = useState([])
   const {setdisplayval,vehicledata,setvehicledata}=useContext(GlobalContext);
+  const [vehicletypecheck,setvehicletypecheck]=useState(true)
   console.log(vehicledata.wheels)
 let wheel = vehicledata.wheels
   useEffect(() => {
@@ -17,7 +18,14 @@ let wheel = vehicledata.wheels
   }, [])
 
   const uniqueVehicleTypes = [...new Set(vehicleTypes)]
-
+  const handleNext=()=>{
+    if(!vehicledata.vehicleType){
+      setvehicletypecheck(false)
+    }else{
+      setvehicletypecheck(true)
+      setdisplayval(4)
+    }
+  }
   return (
     <div>
       <h2>Vehicle Types</h2>
@@ -30,9 +38,10 @@ let wheel = vehicledata.wheels
 ))}
 
       </ul>
+      {!vehicletypecheck && <span style={{ color: "red" }}>Please select one option</span>}
       <div>
         <button onClick={()=>setdisplayval(2)}>Back</button>
-        <button onClick={()=>setdisplayval(4)}>Next</button>
+        <button onClick={handleNext}>Next</button>
       </div>
     </div>
   )
