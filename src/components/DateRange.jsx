@@ -10,9 +10,9 @@ const DateRange = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext);
-  const [startdatecheck, setstartdatecheck] = useState(true)
+  const [startdatecheck, setstartdatecheck] = useState(true) // for validating
   const [enddatecheck, setenddatecheck] = useState(true);
-  const [success, setsuccess] = useState(true)
+  const [success, setsuccess] = useState(true) //for printing success msg
   const [failed, setfailed] = useState(true)
 
   const handleStartDateChange = (date) => {
@@ -23,7 +23,7 @@ const DateRange = () => {
 
   const handleEndDateChange = (date) => {
     setEndDate(date);
-    setvehicledata({ ...vehicledata, booking: { ...vehicledata.booking, endDate: date.toISOString() } })
+    setvehicledata({ ...vehicledata, booking: { ...vehicledata.booking, endDate: date.toISOString() } })  //converting date to isodate
     resetMessage()
   };
 
@@ -51,10 +51,10 @@ const DateRange = () => {
           setsuccess(false)
         }).catch((error) => {
           if (error.response) {
-            console.log(error.response.data)
+            console.log(error.response.data)  //if we get the err.resp , then we are printing the custom error message
             setfailed(false)
           } else {
-            console.log(error.message)
+            console.log(error.message) //this will print the message of err msg for what it has occured.
           }
 
         })

@@ -7,10 +7,10 @@ import './ModelType.css'
 const ModelType = () => {
     const [vehiclemodel, setvehiclemodel] = useState("")
     const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext);
-    const [modelcheck, setmodelcheck] = useState(true)
+    const [modelcheck, setmodelcheck] = useState(true) //validating for model to display err msg or not
     console.log(vehicledata.vehicleType)
     let wheel = vehicledata.wheels;
-    let typeofvehicle = vehicledata.vehicleType;
+    let typeofvehicle = vehicledata.vehicleType; //taking the value of wheels and vehicle type from previous step and storing in variable
     useEffect(() => {
         axios.get(`http://localhost:5500/api/v1/vehicle/${wheel}/${typeofvehicle}`)
             .then((result) => {
@@ -27,7 +27,7 @@ const ModelType = () => {
             setmodelcheck(false)
         } else {
             setmodelcheck(true)
-            setdisplayval(5)
+            setdisplayval(5)  //this will update the stepper val and goes to next question
 
         }
     }

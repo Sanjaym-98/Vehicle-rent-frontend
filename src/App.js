@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import WheelType from './components/WheelType';
 import VehicleType from './components/VehicleType';

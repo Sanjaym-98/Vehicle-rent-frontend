@@ -5,10 +5,10 @@ import { GlobalContext } from "../Contextdata";
 import './VehicleType.css'
 const VehicleType = () => {
   const [vehicleTypes, setVehicleTypes] = useState([])
-  const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext);
-  const [vehicletypecheck, setvehicletypecheck] = useState(true)
+  const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext); 
+  const [vehicletypecheck, setvehicletypecheck] = useState(true) //validating to show error msg 
   console.log(vehicledata.wheels)
-  let wheel = vehicledata.wheels
+  let wheel = vehicledata.wheels  //getting the wheels type from vehicledata and storing in variable
   useEffect(() => {
     axios.get(`http://localhost:5500/api/v1/vehicle/${wheel}`)
       .then((result) => {
@@ -18,7 +18,7 @@ const VehicleType = () => {
       }).catch(e => console.log(e.message))
   }, [])
 
-  const uniqueVehicleTypes = [...new Set(vehicleTypes)]
+  const uniqueVehicleTypes = [...new Set(vehicleTypes)] //to keep unique values
   const handleNext = () => {
     if (!vehicledata.vehicleType) {
       setvehicletypecheck(false)

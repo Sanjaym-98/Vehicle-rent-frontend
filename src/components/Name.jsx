@@ -2,9 +2,9 @@ import { useState, useContext } from "react";
 import { GlobalContext } from "../Contextdata";
 import './name.css'
 const Name = () => {
-  const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext);
-  const [firstnamecheck, setfirstnamecheck] = useState(true);
-  const [lastnamecheck, setlastnamecheck] = useState(true);
+  const { setdisplayval, vehicledata, setvehicledata } = useContext(GlobalContext); //taking the variable from context and using for updating value here
+  const [firstnamecheck, setfirstnamecheck] = useState(true); //first name validating
+  const [lastnamecheck, setlastnamecheck] = useState(true); //last name validating
 
   const handleNext = () => {
     if (!vehicledata.name.first) {
