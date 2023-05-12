@@ -8,9 +8,9 @@ import {Stepper, StepLabel,Step } from '@mui/material';
 import { GlobalContext } from './Contextdata';
 import { useContext } from 'react';
 function App() {
-const {displayval} =useContext(GlobalContext)
+const {displayval} =useContext(GlobalContext) //displayval is getting updated from each component
 
-  function display(displayval){
+  function display(displayval){  // based on displayval , what needs to be shown is decided.
     switch(displayval){
       case 1:
         return <Name/>
@@ -29,7 +29,7 @@ const {displayval} =useContext(GlobalContext)
     <div className="stepper-container">
       <Stepper activeStep={displayval-1} orientation='horizontal'>
         <Step>
-          <StepLabel></StepLabel>
+          <StepLabel></StepLabel>  
         </Step>
         <Step>
           <StepLabel></StepLabel>
