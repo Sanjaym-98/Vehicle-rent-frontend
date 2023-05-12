@@ -1,0 +1,75 @@
+.model-type-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .model-type-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    width: 25%;
+  height: 60vh;;
+    box-sizing: border-box;
+    border: 2px solid #02426a;
+    background-color: #b2b2b2;
+    border-radius: 10px;
+    border-width: 3vw;
+    
+  }
+  
+  .model-type-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+  }
+  
+  .model-type-item label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444444;
+  }
+  
+  .model-type-item input[type="radio"] {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .model-type-error {
+    font-size: 14px;
+    color: #ff0000;
+    margin-top: 4px;
+    align-self: flex-start;
+  }
+  
+  .model-type-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 16px;
+  }
+  
+  .model-type-button {
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #008000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .model-type-button:hover {
+    background-color: #006400;
+  }

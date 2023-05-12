@@ -27,7 +27,7 @@ const {displayval} =useContext(GlobalContext)
     }
   }
   return (
-    <div>
+    <div className="stepper-container">
       <Stepper activeStep={displayval-1} orientation='horizontal'>
         <Step>
           <StepLabel></StepLabel>
@@ -45,6 +45,7 @@ const {displayval} =useContext(GlobalContext)
           <StepLabel></StepLabel>
         </Step>
     </Stepper>
+    <h1 className='app_name'>Vehicle Booking App</h1>
     {display(displayval)}
     </div>
   );
